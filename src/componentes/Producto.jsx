@@ -9,11 +9,26 @@ export function Producto() {
     if (isLoading) {
         return<div>Cargando....</div>
      }
-    return ( 
-        <div>{JSON.stringify(data)}</div>
     
-    )
     return (
-        <div>productos11111</div>
+        <table className="table">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Nombre</th>
+                    <th>Precio</th>
+                </tr>
+            </thead>
+            <tbody>
+                {productos.data.map (producto => (     
+                    <tr key={producto.product_id}>
+                        <td>{producto.product_id}</td> 
+                        <td>{producto.product_name}</td>
+                        <td className='text-end'>{producto.unit_price}</td>
+                    </tr>
+                ))}
+            </tbody>
+        </table>
+        
     )
 }
